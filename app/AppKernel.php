@@ -26,6 +26,19 @@ class AppKernel extends Kernel
             // And finally, the storage and SonataAdminBundle
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
+
+            #For extends
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+
+
+            // You have 2 options to initialize the SonataUserBundle in your AppKernel,
+            // you can select which bundle SonataUserBundle extends
+            // Most of the cases, you'll want to extend FOSUserBundle though ;)
+            // extend the ``FOSUserBundle``
+            new FOS\UserBundle\FOSUserBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
