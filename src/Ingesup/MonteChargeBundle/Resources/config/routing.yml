@@ -1,0 +1,3 @@
+ingesup_monte_charge_homepage:
+    path:     /
+    defaults: { _controller: IngesupMonteChargeBundle:Default:index }

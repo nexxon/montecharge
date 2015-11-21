@@ -1,6 +1,10 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+ingesup_monte_charge:
+    resource: "@IngesupMonteChargeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+#app:
+#    resource: "@AppBundle/Controller/"
+#    type:     annotation
 
 # Sonata routes
 admin:

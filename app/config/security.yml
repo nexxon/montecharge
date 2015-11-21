@@ -11,6 +11,11 @@ security:
     providers:
         fos_userbundle:
             id: fos_user.user_manager
+        in_memory:
+            memory:
+                users:
+                    Administrateur:
+                        roles: 'ROLE_ADMIN'
 
     firewalls:
         dev:
@@ -27,6 +32,8 @@ security:
                 use_forward:    false
                 check_path:     /admin/login_check
                 failure_path:   null
+                default_target_path: /admin/dashboard
+                always_use_default_target_path: true
             logout:
                 path:           /admin/logout
             anonymous:          true
@@ -46,6 +53,8 @@ security:
                 use_forward:    false
                 check_path:     /login_check
                 failure_path:   null
+                default_target_path: /profile
+                always_use_default_target_path: true
             logout:             true
             anonymous:          true
 
