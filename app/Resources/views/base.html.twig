@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+        {# block Calendar#}
+        <link rel="stylesheet" href="{{ asset('assets/lib/cupertino/jquery-ui.min.css') }}" />
+        <link  href="{{ asset('assets/fullcalendar.css') }}" rel='stylesheet' />
+        <link  href="{{ asset('assets/fullcalendar.print.css') }}" rel='stylesheet' media='print' />
+        <script src="{{ asset('assets/lib/moment.min.js') }}"></script>
+        <script src="{{ asset('assets/lib/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/fullcalendar.min.js') }}"></script>
+        <script src="{{ asset('assets/lang-all.js') }}"></script>
+        {#endblock Calendar#}
+
+        <meta name="viewport" content="width=device-width, user-scalable=yes" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
