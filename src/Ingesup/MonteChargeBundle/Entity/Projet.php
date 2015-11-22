@@ -29,18 +29,16 @@ class Projet
     private $name;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="class", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Ingesup\MonteChargeBundle\Entity\Classe", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $class;
+    private $classe;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="groupe", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Ingesup\MonteChargeBundle\Entity\Groups", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $groupe;
+    private $groups;
 
     /**
      * @var \DateTime
@@ -64,9 +62,8 @@ class Projet
     private $manager;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Ingesup\MonteChargeBundle\Entity\Type", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $type;
 
@@ -240,5 +237,51 @@ class Projet
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set classe
+     *
+     * @param \Ingesup\MonteChargeBundle\Entity\Classe $classe
+     * @return Projet
+     */
+    public function setClasse(\Ingesup\MonteChargeBundle\Entity\Classe $classe)
+    {
+        $this->classe = $classe;
+
+        return $this;
+    }
+
+    /**
+     * Get classe
+     *
+     * @return \Ingesup\MonteChargeBundle\Entity\Classe 
+     */
+    public function getClasse()
+    {
+        return $this->classe;
+    }
+
+    /**
+     * Set groups
+     *
+     * @param \Ingesup\MonteChargeBundle\Entity\Groups $groups
+     * @return Projet
+     */
+    public function setGroups(\Ingesup\MonteChargeBundle\Entity\Groups $groups)
+    {
+        $this->groups = $groups;
+
+        return $this;
+    }
+
+    /**
+     * Get groups
+     *
+     * @return \Ingesup\MonteChargeBundle\Entity\Groups 
+     */
+    public function getGroups()
+    {
+        return $this->groups;
     }
 }

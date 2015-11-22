@@ -40,6 +40,7 @@ class AppKernel extends Kernel
 
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Ingesup\MonteChargeBundle\IngesupMonteChargeBundle(),
+            new VinceT\BaseBundle\VinceTBaseBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

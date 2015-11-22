@@ -2,3 +2,18 @@ services:
 #    ingesup_monte_charge.example:
 #        class: Ingesup\MonteChargeBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+#    ingesup_monte_charge.admin.projet:
+#        class: Ingesup\MonteChargeBundle\Admin\ProjetAdmin
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, group: IngesupMonteCharge, label: Projet, label_translator_strategy: sonata.admin.label.strategy.underscore }
+#        arguments:
+#            - null
+#            - Ingesup\MonteChargeBundle\Entity\Projet
+#            - null
+
+    ingesup_monte_charge.admin.projet:
+            class: Ingesup\MonteChargeBundle\Admin\ProjetAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Projets, label: Projets }
+            arguments: [null, Ingesup\MonteChargeBundle\Entity\Admin, IngesupMonteChargeBundle:ProjetAdmin]

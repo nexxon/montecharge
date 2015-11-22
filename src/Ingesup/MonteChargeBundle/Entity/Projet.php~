@@ -29,18 +29,16 @@ class Projet
     private $name;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="class", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Ingesup\MonteChargeBundle\Entity\Classe", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $class;
+    private $classe;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="groupe", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Ingesup\MonteChargeBundle\Entity\Groups", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $groupe;
+    private $groups;
 
     /**
      * @var \DateTime
@@ -64,9 +62,8 @@ class Projet
     private $manager;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Ingesup\MonteChargeBundle\Entity\Type", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $type;
 
