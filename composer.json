@@ -26,7 +26,6 @@
         "sonata-project/user-bundle": "^2.2",
         "knplabs/knp-menu": "dev-master as 1.1",
         "knplabs/knp-menu-bundle": "dev-master as 1.1",
-        "vincet/base-bundle": "^4.0",
         "doctrine/doctrine-fixtures-bundle": "~2.2"
     },
     "scripts": {

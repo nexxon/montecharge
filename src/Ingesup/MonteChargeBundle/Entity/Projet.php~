@@ -32,6 +32,7 @@ class Projet
      * @ORM\ManyToOne(targetEntity="Ingesup\MonteChargeBundle\Entity\Classe", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
+
     private $classe;
 
     /**
@@ -39,6 +40,13 @@ class Projet
      * @ORM\JoinColumn(nullable=false)
      */
     private $groups;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="startdate", type="datetime")
+     */
+    private $startDate;
 
     /**
      * @var \DateTime
@@ -68,6 +76,9 @@ class Projet
     private $type;
 
 
+    public function __construct(){
+        $this->groupe = new ArrayCollection();
+    }
     /**
      * Get id
      *
@@ -132,7 +143,7 @@ class Projet
      */
     public function setGroupe($groupe)
     {
-        $this->groupe = $groupe;
+        $this->groupe[] = $groupe;
 
         return $this;
     }
@@ -219,7 +230,7 @@ class Projet
     /**
      * Set type
      *
-     * @param string $type
+     * @param \Ingesup\MonteChargeBundle\Entity\Type $type
      * @return Projet
      */
     public function setType($type)
@@ -232,10 +243,79 @@ class Projet
     /**
      * Get type
      *
-     * @return string 
+     * @return \Ingesup\MonteChargeBundle\Entity\Type
      */
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set classe
+     *
+     * @param \Ingesup\MonteChargeBundle\Entity\Classe $classe
+     * @return Projet
+     */
+    public function setClasse(\Ingesup\MonteChargeBundle\Entity\Classe $classe)
+    {
+        $this->classe = $classe;
+
+        return $this;
+    }
+
+    /**
+     * Get classe
+     *
+     * @return \Ingesup\MonteChargeBundle\Entity\Classe 
+     */
+    public function getClasse()
+    {
+        return $this->classe;
+    }
+
+    /**
+     * Set groups
+     *
+     * @param \Ingesup\MonteChargeBundle\Entity\Groups $groups
+     * @return Projet
+     */
+    public function setGroups(\Ingesup\MonteChargeBundle\Entity\Groups $groups)
+    {
+        $this->groups = $groups;
+
+        return $this;
+    }
+
+    /**
+     * Get groups
+     *
+     * @return \Ingesup\MonteChargeBundle\Entity\Groups 
+     */
+    public function getGroups()
+    {
+        return $this->groups;
+    }
+
+    /**
+     * Set startDate
+     *
+     * @param \DateTime $startDate
+     * @return Projet
+     */
+    public function setStartDate($startDate)
+    {
+        $this->startDate = $startDate;
+
+        return $this;
+    }
+
+    /**
+     * Get startDate
+     *
+     * @return \DateTime 
+     */
+    public function getStartDate()
+    {
+        return $this->startDate;
     }
 }

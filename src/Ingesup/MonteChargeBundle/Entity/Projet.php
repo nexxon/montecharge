@@ -3,6 +3,7 @@
 namespace Ingesup\MonteChargeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Projet
@@ -32,6 +33,7 @@ class Projet
      * @ORM\ManyToOne(targetEntity="Ingesup\MonteChargeBundle\Entity\Classe", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
+
     private $classe;
 
     /**
@@ -39,6 +41,13 @@ class Projet
      * @ORM\JoinColumn(nullable=false)
      */
     private $groups;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="startdate", type="datetime")
+     */
+    private $startDate;
 
     /**
      * @var \DateTime
@@ -68,6 +77,9 @@ class Projet
     private $type;
 
 
+    public function __construct(){
+        $this->groupe = new ArrayCollection();
+    }
     /**
      * Get id
      *
@@ -132,7 +144,7 @@ class Projet
      */
     public function setGroupe($groupe)
     {
-        $this->groupe = $groupe;
+        $this->groupe[] = $groupe;
 
         return $this;
     }
@@ -219,7 +231,7 @@ class Projet
     /**
      * Set type
      *
-     * @param string $type
+     * @param \Ingesup\MonteChargeBundle\Entity\Type $type
      * @return Projet
      */
     public function setType($type)
@@ -232,7 +244,7 @@ class Projet
     /**
      * Get type
      *
-     * @return string 
+     * @return \Ingesup\MonteChargeBundle\Entity\Type
      */
     public function getType()
     {
@@ -283,5 +295,28 @@ class Projet
     public function getGroups()
     {
         return $this->groups;
+    }
+
+    /**
+     * Set startDate
+     *
+     * @param \DateTime $startDate
+     * @return Projet
+     */
+    public function setStartDate($startDate)
+    {
+        $this->startDate = $startDate;
+
+        return $this;
+    }
+
+    /**
+     * Get startDate
+     *
+     * @return \DateTime 
+     */
+    public function getStartDate()
+    {
+        return $this->startDate;
     }
 }
