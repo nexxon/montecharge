@@ -1,0 +1,81 @@
+#sonata_user_profile_form label {
+    width: 10% !important;
+}
+#sonata_user_profile_form select,
+#sonata_user_profile_form input,
+#sonata_user_profile_form textarea{
+    width: 20% !important;
+}
+
+#fos_user_profile_form label,
+#fos_user_change_password_form label{
+    width: 30%;
+}
+
+#fos_user_profile_form select,
+#fos_user_profile_form input,
+#fos_user_profile_form textarea,
+
+#fos_user_change_password_form select,
+#fos_user_change_password_form input,
+#fos_user_change_password_form textarea{
+    width: 40% !important;
+}
+.infos-projects{
+    min-height: 175px;
+    color: white;
+}
+.title-projects{
+    text-align: center;
+    font-size: 22px;
+}
+.number-projects{
+    text-align:center;
+    font-size: 60px;
+}
+.total-tache{
+    background-color: #096662;
+}
+.total-devoir{
+    background-color: #00a65a;
+}
+.total-projet{
+    background-color: #f39c12;
+}
+.total-partiel{
+    background-color: #dd4b39;
+}
+
+.box-info{
+    border-top:2px solid #00c0ef;
+    margin: 10px;
+    min-height: 175px;
+}
+.bof-infos .btn-box-tool{
+    background-color: white !important;
+    font-size: 5px;
+}
+
+.dashboard-details{
+    min-height: 175px;
+}
+.dashboard-infos-details-title{
+    border-bottom: 1px solid #d7d7d7;
+}
+.tab-dash-thead-devoir{
+    background-color: rgba(0, 166,90, 0.2);
+}
+.tab-dash-thead-projet{
+    background-color: rgba(243, 156,18, 0.2);
+}
+.tab-dash-thead-partiel{
+    background-color: rgba(221, 75, 57, 0.2);
+}
+.dashboard-infos-table{
+
+}
+#calendar {
+    max-width: 100%;
+    margin: 10px;
+    padding: 0 10px;
+}

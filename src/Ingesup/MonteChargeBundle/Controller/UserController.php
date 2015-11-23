@@ -13,8 +13,12 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\UserBundle\Model\UserInterface;
 use FOS\UserBundle\FOSUserEvents;
+use Sonata\AdminBundle\Controller\CoreController;
 
-class UserController extends Controller
+use Sonata\AdminBundle\Admin\AdminInterface;
+
+
+class UserController extends CoreController
 {
 
     public function showProfileAction()
@@ -33,6 +37,33 @@ class UserController extends Controller
             'projects' => $projects,
             'user'   => $user,
             'blocks' => $this->container->getParameter('sonata.user.configuration.profile_blocks')
+        ));
+    }
+    public function overrideDashboardAction()
+    {
+
+        $blocks = array(
+            'top'    => array(),
+            'left'   => array(),
+            'center' => array(),
+            'right'  => array(),
+            'bottom' => array(),
+        );
+
+        foreach ($this->container->getParameter('sonata.admin.configuration.dashboard_blocks') as $block) {
+            $blocks[$block['position']][] = $block;
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $projects = $em->getRepository('IngesupMonteChargeBundle:Projet')->findAll();
+        $types = $em->getRepository('IngesupMonteChargeBundle:Type')->findAll();
+
+        return $this->render($this->getAdminPool()->getTemplate('dashboard'), array(
+            'projects'        => $projects,
+            'types'           => $types,
+            'base_template'   => $this->getBaseTemplate(),
+            'admin_pool'      => $this->container->get('sonata.admin.pool'),
+            'blocks'          => $blocks,
         ));
     }
 }
