@@ -116,11 +116,17 @@ class UserController extends CoreController
             $projet->setDeadline(\DateTime::createFromFormat('d/m/Y H:i:s', $_deadline));
 
             $em->persist($projet);
-
             $em->flush();
 
 
         return new RedirectResponse($this->generateUrl('sonata_admin_dashboard'));
 
+    }
+    public function eraseTaskDashboardAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $project = $em->getRepository('IngesupMonteChargeBundle:Projet')->find((int)$id);
+        $em->remove($project);
+        $em->flush();
+        return new RedirectResponse($this->generateUrl('sonata_admin_dashboard'));
     }
 }

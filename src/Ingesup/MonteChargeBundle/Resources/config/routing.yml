@@ -6,3 +6,8 @@ sonata_admin_dashboard_new_user:
     path: /admin/dashboard
     defaults: { _controller: IngesupMonteChargeBundle:User:newUserDashboard }
     methods: [POST]
+
+sonata_admin_dashboard_erase_task:
+    path: /admin/dashboard/deletetask/{id}
+    defaults: { _controller: IngesupMonteChargeBundle:User:eraseTaskDashboard }
+    methods: [GET]
